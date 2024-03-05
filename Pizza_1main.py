@@ -7,6 +7,7 @@ Description: This program is the main application for our pizza ordering system,
 """
 
 import tkinter as tk
+from tkinter import PhotoImage
 import delivery_window
 import toppings_window
 
@@ -14,6 +15,14 @@ class PizzaOrderApp:
     def __init__(self, master):
         self.master = master
         self.master.title("Pizza Ordering System")
+
+        # Load the image
+        self.pizza_image = PhotoImage(file="pizza_main.png")
+
+        # Display the image with alternate text
+        self.image_label = tk.Label(master, image=self.pizza_image, text="Cheesy pizza being served hot", compound=tk.BOTTOM)
+        self.image_label.image = self.pizza_image
+        self.image_label.pack()
 
         self.label = tk.Label(master, text="Welcome to Pizza Ordering System")
         self.label.pack()
